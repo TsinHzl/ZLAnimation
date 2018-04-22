@@ -62,7 +62,7 @@ static ZLAnimation *anim_ = nil;
 }
 
 #pragma mark - 隐藏加载视图并同时进行性能优化
-- (void)hide
+- (void)zl_hide
 {
     [self.animView stopAnimating];
     [self.animView removeFromSuperview];
@@ -72,24 +72,24 @@ static ZLAnimation *anim_ = nil;
 }
 #pragma mark - 显示加载视图
 
-- (void)show {
-    [self showIsCover:NO isAnimation:NO];
+- (void)zl_show {
+    [self zl_showIsCover:NO isAnimation:NO];
 }
-- (void)showIsCover:(BOOL)isCover isAnimation:(BOOL)isAnimation
+- (void)zl_showIsCover:(BOOL)isCover isAnimation:(BOOL)isAnimation
 {
     NSMutableArray *imageNames = [NSMutableArray array];
     for (int i = 1; i < 22; i++) {
         NSString *imageName = [NSString stringWithFormat:@"ZLAnimation.bundle/list_loading_0%02d.png",i];
         [imageNames addObject:imageName];
     }
-    [self showWithAnimationImages:imageNames imageSize:CGSizeMake(200, 200) timeInterval:ZLAnimationInterval isCover:isCover isAnimation:isAnimation viewController:nil];
+    [self zl_showWithAnimationImages:imageNames imageSize:CGSizeMake(200, 200) timeInterval:ZLAnimationInterval isCover:isCover isAnimation:isAnimation viewController:nil];
 }
 
-- (void)showWithAnimationImages:(NSArray<NSString *> *)imageNames imageSize:(CGSize)size isCover:(BOOL)isCover isAnimation:(BOOL)isAnimation viewController:(UIViewController *)viewController {
-    [self showWithAnimationImages:imageNames imageSize:size timeInterval:0 isCover:isCover isAnimation:isAnimation viewController:viewController];
+- (void)zl_showWithAnimationImages:(NSArray<NSString *> *)imageNames imageSize:(CGSize)size isCover:(BOOL)isCover isAnimation:(BOOL)isAnimation viewController:(UIViewController *)viewController {
+    [self zl_showWithAnimationImages:imageNames imageSize:size timeInterval:0 isCover:isCover isAnimation:isAnimation viewController:viewController];
 }
 
-- (void)showWithAnimationImages:(NSArray<NSString *> *)imageNames imageSize:(CGSize)size timeInterval:(CGFloat)interval isCover:(BOOL)isCover isAnimation:(BOOL)isAnimation viewController:(UIViewController *)viewController {
+- (void)zl_showWithAnimationImages:(NSArray<NSString *> *)imageNames imageSize:(CGSize)size timeInterval:(CGFloat)interval isCover:(BOOL)isCover isAnimation:(BOOL)isAnimation viewController:(UIViewController *)viewController {
     
     UIViewController *rootViewController = [[UIViewController alloc] init];
     rootViewController.view.backgroundColor = [UIColor clearColor];
@@ -143,7 +143,7 @@ static ZLAnimation *anim_ = nil;
         weakSelf.window.frame = frame;
         [weakSelf.vc.navigationController popViewControllerAnimated:NO];
     } completion:^(BOOL finished) {
-        [weakSelf hide];
+        [weakSelf zl_hide];
     }];
 }
 

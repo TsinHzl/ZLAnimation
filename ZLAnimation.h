@@ -16,14 +16,14 @@
 + (instancetype)sharedAnimation;
 
 /** 显示加载视图 */
-- (void)show;
-- (void)showIsCover:(BOOL)isCover isAnimation:(BOOL)isAnimation;
+- (void)zl_show;
+- (void)zl_showIsCover:(BOOL)isCover isAnimation:(BOOL)isAnimation;
 /** 隐藏 */
-- (void)hide;
+- (void)zl_hide;
 /** 根据指定动画图片显示加载视图 */
-- (void)showWithAnimationImages:(NSArray<NSString *> *)imageNames imageSize:(CGSize)size isCover:(BOOL)isCover isAnimation:(BOOL)isAnimation viewController:(UIViewController *)viewController;
+- (void)zl_showWithAnimationImages:(NSArray<NSString *> *)imageNames imageSize:(CGSize)size isCover:(BOOL)isCover isAnimation:(BOOL)isAnimation viewController:(UIViewController *)viewController;
 /** 根据指定动画图片显示加载视图 */
-- (void)showWithAnimationImages:(NSArray<NSString *> *)imageNames imageSize:(CGSize)size timeInterval:(CGFloat)interval isCover:(BOOL)isCover isAnimation:(BOOL)isAnimation viewController:(UIViewController *)viewController;
+- (void)zl_showWithAnimationImages:(NSArray<NSString *> *)imageNames imageSize:(CGSize)size timeInterval:(CGFloat)interval isCover:(BOOL)isCover isAnimation:(BOOL)isAnimation viewController:(UIViewController *)viewController;
 
 
 @end
